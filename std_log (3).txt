@@ -1,0 +1,174 @@
+chunks_source=/mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/cap/data-capability/wd/INPUT_chunks_source
+embeddings_container=azureml://subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourcegroups/default_resorce_group/workspaces/pizzasalesworkspace/datastores/workspaceblobstore/paths/embeddings/Medical-Diagnosis-list/
+output=/mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/cap/data-capability/wd/embeddings
+embeddings_model=azure_open_ai://deployment/gpt-4o-mini/model/gpt-4o-mini
+batch_size=100
+num_workers=-1
+[2025-02-04 16:14:26] INFO     azureml.rag.embed.embed - ActivityStarted, embed (activity.py:108)
+/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/mlflow/_protos/aml_service_pb2.py:10: UserWarning: google.protobuf.service module is deprecated. RPC implementations should provide code generator plugins which generate code specific to the RPC implementation. service.py will be removed in Jan 2025
+  from google.protobuf import service as _service
+[2025-02-04 16:14:26] INFO     azureml.rag.embed - Reading chunks from the chunks_source (embed.py:394)
+[2025-02-04 16:14:26] INFO     azureml.rag.embed.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-02-04 16:14:28] INFO     azureml.rag.embed - ==== Reading chunks from file 1/1: Chunks_461f27a1e8d9e784263406054f7d803859d2922b90aa195171c814e8a5f3c34a.jsonl (embed.py:45)
+[2025-02-04 16:14:28] INFO     azureml.rag.embed - ==== Putting batch_id=0 with 100 chunks in queue (embed.py:320)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_0 - chunk_embedder_0 started (embed.py:142)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_1 - chunk_embedder_1 started (embed.py:142)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_1.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_0.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-02-04 16:14:28] WARNING  azureml.rag.chunk_embedder_1.init.load_embeddings_container - Failed to get latest folder from embeddings_container. (__init__.py:1505)
+[2025-02-04 16:14:28] WARNING  azureml.rag.azureml.rag.embeddings - failed to get latest folder from /mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/exe/wd/embeddings_container with max() arg is an empty sequence. (__init__.py:1506)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_1.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Success, Duration=119.27 [ms] (activity.py:129)
+[2025-02-04 16:14:28] WARNING  azureml.rag.chunk_embedder_0.init.load_embeddings_container - Failed to get latest folder from embeddings_container. (__init__.py:1505)
+[2025-02-04 16:14:28] WARNING  azureml.rag.azureml.rag.embeddings - failed to get latest folder from /mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/exe/wd/embeddings_container with max() arg is an empty sequence. (__init__.py:1506)
+[2025-02-04 16:14:28] INFO     azureml.rag.chunk_embedder_0.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Success, Duration=119.87 [ms] (activity.py:129)
+[2025-02-04 16:14:28] ERROR    azureml.rag.chunk_embedder_1 - Exception in chunk_embedder_1: ServiceException:
+	Code: 404
+	Message: (UserError) Please make sure that you are passing valid secret names and that the keyvault https://pizzasaleswork5781133650.vault.azure.net exists
+	Details:
+
+	Headers: {
+	    "Date": "Tue, 04 Feb 2025 16:14:28 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:2d2e8e63-272e-4b3c-8598-4ee570a0e70d",
+	    "x-ms-response-type": "error",
+	    "mise-correlation-id": "557f762e-e876-478a-adc0-7fd99d8483c7",
+	    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-eastus-01",
+	    "x-request-time": "0.174",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {
+        "statusCode": 404
+    },
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Please make sure that you are passing valid secret names and that the keyvault https://pizzasaleswork5781133650.vault.azure.net exists",
+        "message_format": null,
+        "message_parameters": null,
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "9f7d3ba0ca2358d491722fef8f354b28",
+        "request": "29331d3dfa96bb35"
+    },
+    "environment": "eastus",
+    "location": "eastus",
+    "time": {},
+    "component_name": "credential"
+} (embed.py:206)
+[2025-02-04 16:14:29] ERROR    azureml.rag.chunk_embedder_0 - Exception in chunk_embedder_0: ServiceException:
+	Code: 404
+	Message: (UserError) Please make sure that you are passing valid secret names and that the keyvault https://pizzasaleswork5781133650.vault.azure.net exists
+	Details:
+
+	Headers: {
+	    "Date": "Tue, 04 Feb 2025 16:14:29 GMT",
+	    "Content-Type": "application/json; charset=utf-8",
+	    "Transfer-Encoding": "chunked",
+	    "Connection": "keep-alive",
+	    "Vary": "Accept-Encoding",
+	    "Request-Context": "appId=cid-v1:2d2e8e63-272e-4b3c-8598-4ee570a0e70d",
+	    "x-ms-response-type": "error",
+	    "mise-correlation-id": "7cae0cee-5f42-4ccf-9fda-62196bb7f3d5",
+	    "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+	    "X-Content-Type-Options": "nosniff",
+	    "x-aml-cluster": "vienna-eastus-02",
+	    "x-request-time": "0.338",
+	    "Content-Encoding": "gzip"
+	}
+	InnerException: {
+    "additional_properties": {
+        "statusCode": 404
+    },
+    "error": {
+        "additional_properties": {
+            "debugInfo": null
+        },
+        "code": "UserError",
+        "severity": null,
+        "message": "Please make sure that you are passing valid secret names and that the keyvault https://pizzasaleswork5781133650.vault.azure.net exists",
+        "message_format": null,
+        "message_parameters": null,
+        "reference_code": null,
+        "details_uri": null,
+        "target": null,
+        "details": [],
+        "inner_error": {
+            "additional_properties": {},
+            "code": "NotFoundError",
+            "inner_error": null
+        },
+        "additional_info": null
+    },
+    "correlation": {
+        "operation": "bea4ae9aa37bf00b1125f29f00e080a9",
+        "request": "50f8d20439b7cc0a"
+    },
+    "environment": "eastus",
+    "location": "eastus",
+    "time": {},
+    "component_name": "credential"
+} (embed.py:206)
+[2025-02-04 16:14:29] ERROR    azureml.rag.embed - Exception in chunk_embedder worker: Error sending result: '<multiprocessing.pool.ExceptionWithTraceback object at 0x14b010dda400>'. Reason: 'TypeError("cannot pickle 'traceback' object")' (embed.py:217)
+[2025-02-04 16:14:30] ERROR    azureml.rag.embed.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Failure, Duration=3242.96 [ms], Exception=MaybeEncodingError (activity.py:127)
+[2025-02-04 16:14:30] ERROR    azureml.rag.embed.embed - ServiceError: intepreted error = Rag system error, original error = Error sending result: '<multiprocessing.pool.ExceptionWithTraceback object at 0x14b010dda400>'. Reason: 'TypeError("cannot pickle 'traceback' object")' (exceptions.py:124)
+[2025-02-04 16:14:35] ERROR    azureml.rag.embed.embed - embed failed with exception: Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 497, in main_wrapper
+    map_exceptions(main, activity_logger, args, logger, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 126, in map_exceptions
+    raise e
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 118, in map_exceptions
+    return func(*func_args, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 450, in main
+    create_embeddings(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 322, in create_embeddings
+    _check_workers(embedder_futures, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 213, in _check_workers
+    future.get(timeout=1)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 771, in get
+    raise self._value
+multiprocessing.pool.MaybeEncodingError: Error sending result: '<multiprocessing.pool.ExceptionWithTraceback object at 0x14b010dda400>'. Reason: 'TypeError("cannot pickle 'traceback' object")'
+ (embed.py:499)
+🏃 View run generate_embeddings at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c/runs/785e7ad7-b4a2-446b-b31d-326903e8076f
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c
+[2025-02-04 16:14:35] ERROR    azureml.rag.embed.embed - ActivityCompleted: Activity=embed, HowEnded=Failure, Duration=9442.67 [ms], Exception=MaybeEncodingError (activity.py:127)
+Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/azureml-envs/rag-embeddings/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 526, in <module>
+    main_wrapper(args, logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 497, in main_wrapper
+    map_exceptions(main, activity_logger, args, logger, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 126, in map_exceptions
+    raise e
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 118, in map_exceptions
+    return func(*func_args, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 450, in main
+    create_embeddings(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 322, in create_embeddings
+    _check_workers(embedder_futures, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 213, in _check_workers
+    future.get(timeout=1)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 771, in get
+    raise self._value
+multiprocessing.pool.MaybeEncodingError: Error sending result: '<multiprocessing.pool.ExceptionWithTraceback object at 0x14b010dda400>'. Reason: 'TypeError("cannot pickle 'traceback' object")'
