@@ -1,5 +1,5 @@
 chunks_source=/mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/cap/data-capability/wd/INPUT_chunks_source
-embeddings_container=azureml://subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourcegroups/default_resorce_group/workspaces/pizzasalesworkspace/datastores/workspaceblobstore/paths/embeddings/Medical-Diagnosis-list/
+embeddings_container=azureml://subscriptions/XXX/resourcegroups/default_resorce_group/workspaces/pizzasalesworkspace/datastores/workspaceblobstore/paths/embeddings/Medical-Diagnosis-list/
 output=/mnt/azureml/cr/j/f7ea5d7a82e04c37a09c83b5b4013ac2/cap/data-capability/wd/embeddings
 embeddings_model=azure_open_ai://deployment/gpt-4o-mini/model/gpt-4o-mini
 batch_size=100
@@ -147,8 +147,8 @@ num_workers=-1
     raise self._value
 multiprocessing.pool.MaybeEncodingError: Error sending result: '<multiprocessing.pool.ExceptionWithTraceback object at 0x14b010dda400>'. Reason: 'TypeError("cannot pickle 'traceback' object")'
  (embed.py:499)
-🏃 View run generate_embeddings at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c/runs/785e7ad7-b4a2-446b-b31d-326903e8076f
-🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c
+🏃 View run generate_embeddings at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/XXX/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c/runs/785e7ad7-b4a2-446b-b31d-326903e8076f
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/XXX/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c
 [2025-02-04 16:14:35] ERROR    azureml.rag.embed.embed - ActivityCompleted: Activity=embed, HowEnded=Failure, Duration=9442.67 [ms], Exception=MaybeEncodingError (activity.py:127)
 Traceback (most recent call last):
   File "/azureml-envs/rag-embeddings/lib/python3.9/runpy.py", line 197, in _run_module_as_main
