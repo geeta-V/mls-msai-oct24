@@ -1,0 +1,106 @@
+chunks_source=/mnt/azureml/cr/j/a258d9cba49244fabd875b463565d0ed/cap/data-capability/wd/INPUT_chunks_source
+embeddings_container=azureml://subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourcegroups/default_resorce_group/workspaces/pizzasalesworkspace/datastores/workspaceblobstore/paths/embeddings/Medical-Diagnosis-list/
+output=/mnt/azureml/cr/j/a258d9cba49244fabd875b463565d0ed/cap/data-capability/wd/embeddings
+embeddings_model=endpoint://deployment/text-embedding-ada-002/model/text-embedding-ada-002
+batch_size=100
+num_workers=-1
+[2025-03-01 03:47:40] INFO     azureml.rag.embed.embed - ActivityStarted, embed (activity.py:108)
+/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/mlflow/_protos/aml_service_pb2.py:10: UserWarning: google.protobuf.service module is deprecated. RPC implementations should provide code generator plugins which generate code specific to the RPC implementation. service.py will be removed in Jan 2025
+  from google.protobuf import service as _service
+[2025-03-01 03:47:41] INFO     azureml.rag.embed - Reading chunks from the chunks_source (embed.py:394)
+[2025-03-01 03:47:41] INFO     azureml.rag.embed.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-03-01 03:47:42] INFO     azureml.rag.embed - ==== Reading chunks from file 1/1: Chunks_461f27a1e8d9e784263406054f7d803859d2922b90aa195171c814e8a5f3c34a.jsonl (embed.py:45)
+[2025-03-01 03:47:42] INFO     azureml.rag.embed - ==== Putting batch_id=0 with 100 chunks in queue (embed.py:320)
+[2025-03-01 03:47:42] INFO     azureml.rag.chunk_embedder_0 - chunk_embedder_0 started (embed.py:142)
+[2025-03-01 03:47:42] INFO     azureml.rag.chunk_embedder_1 - chunk_embedder_1 started (embed.py:142)
+[2025-03-01 03:47:42] INFO     azureml.rag.chunk_embedder_0.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-03-01 03:47:42] INFO     azureml.rag.chunk_embedder_1.init.load_embeddings_container - ActivityStarted, init.load_embeddings_container (activity.py:108)
+[2025-03-01 03:47:43] WARNING  azureml.rag.chunk_embedder_1.init.load_embeddings_container - Failed to get latest folder from embeddings_container. (__init__.py:1505)
+[2025-03-01 03:47:43] WARNING  azureml.rag.azureml.rag.embeddings - failed to get latest folder from /mnt/azureml/cr/j/a258d9cba49244fabd875b463565d0ed/exe/wd/embeddings_container with max() arg is an empty sequence. (__init__.py:1506)
+[2025-03-01 03:47:43] INFO     azureml.rag.chunk_embedder_1.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Success, Duration=363.84 [ms] (activity.py:129)
+[2025-03-01 03:47:43] ERROR    azureml.rag.chunk_embedder_1 - Exception in chunk_embedder_1: Unknown model kind: endpoint (embed.py:206)
+[2025-03-01 03:47:43] WARNING  azureml.rag.chunk_embedder_0.init.load_embeddings_container - Failed to get latest folder from embeddings_container. (__init__.py:1505)
+[2025-03-01 03:47:43] WARNING  azureml.rag.azureml.rag.embeddings - failed to get latest folder from /mnt/azureml/cr/j/a258d9cba49244fabd875b463565d0ed/exe/wd/embeddings_container with max() arg is an empty sequence. (__init__.py:1506)
+[2025-03-01 03:47:43] INFO     azureml.rag.chunk_embedder_0.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Success, Duration=368.76 [ms] (activity.py:129)
+[2025-03-01 03:47:43] ERROR    azureml.rag.chunk_embedder_0 - Exception in chunk_embedder_0: Unknown model kind: endpoint (embed.py:206)
+[2025-03-01 03:47:43] ERROR    azureml.rag.embed - Exception in chunk_embedder worker: Unknown model kind: endpoint (embed.py:217)
+[2025-03-01 03:47:44] ERROR    azureml.rag.embed.init.load_embeddings_container - ActivityCompleted: Activity=init.load_embeddings_container, HowEnded=Failure, Duration=2862.16 [ms], Exception=ValueError (activity.py:127)
+[2025-03-01 03:47:44] ERROR    azureml.rag.embed.embed - ServiceError: intepreted error = Rag system error, original error = Unknown model kind: endpoint (exceptions.py:124)
+[2025-03-01 03:47:49] ERROR    azureml.rag.embed.embed - embed failed with exception: multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 144, in chunk_embedder
+    embedder = load_embeddings_container(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 120, in load_embeddings_container
+    else EmbeddingsContainer.from_uri(embeddings_model_uri, **connection_args)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/embeddings/__init__.py", line 517, in from_uri
+    config = parse_model_uri(model_uri, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/models.py", line 75, in parse_model_uri
+    raise ValueError(f"Unknown model kind: {scheme}")
+ValueError: Unknown model kind: endpoint
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 497, in main_wrapper
+    map_exceptions(main, activity_logger, args, logger, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 126, in map_exceptions
+    raise e
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 118, in map_exceptions
+    return func(*func_args, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 450, in main
+    create_embeddings(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 322, in create_embeddings
+    _check_workers(embedder_futures, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 213, in _check_workers
+    future.get(timeout=1)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 771, in get
+    raise self._value
+ValueError: Unknown model kind: endpoint
+ (embed.py:499)
+🏃 View run generate_embeddings at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c/runs/2cf768d5-da00-4f04-adc7-813e7358d5eb
+🧪 View experiment at: https://eastus.api.azureml.ms/mlflow/v2.0/subscriptions/b113073a-8845-458d-8462-4792938c8faa/resourceGroups/default_resorce_group/providers/Microsoft.MachineLearningServices/workspaces/pizzasalesworkspace/#/experiments/242b3e20-0e45-4460-b0e1-5aa0e035ee3c
+[2025-03-01 03:47:49] ERROR    azureml.rag.embed.embed - ActivityCompleted: Activity=embed, HowEnded=Failure, Duration=8853.31 [ms], Exception=ValueError (activity.py:127)
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 144, in chunk_embedder
+    embedder = load_embeddings_container(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 120, in load_embeddings_container
+    else EmbeddingsContainer.from_uri(embeddings_model_uri, **connection_args)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/embeddings/__init__.py", line 517, in from_uri
+    config = parse_model_uri(model_uri, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/models.py", line 75, in parse_model_uri
+    raise ValueError(f"Unknown model kind: {scheme}")
+ValueError: Unknown model kind: endpoint
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/azureml-envs/rag-embeddings/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/azureml-envs/rag-embeddings/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 526, in <module>
+    main_wrapper(args, logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 497, in main_wrapper
+    map_exceptions(main, activity_logger, args, logger, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 126, in map_exceptions
+    raise e
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/utils/exceptions.py", line 118, in map_exceptions
+    return func(*func_args, **kwargs)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 450, in main
+    create_embeddings(
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 322, in create_embeddings
+    _check_workers(embedder_futures, activity_logger)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/site-packages/azureml/rag/tasks/embed.py", line 213, in _check_workers
+    future.get(timeout=1)
+  File "/azureml-envs/rag-embeddings/lib/python3.9/multiprocessing/pool.py", line 771, in get
+    raise self._value
+ValueError: Unknown model kind: endpoint
